@@ -1,20 +1,63 @@
-[data-theme="dark"] .icon-sun { display: block; }
-[data-theme="dark"] .icon-moon { display: none; }
-[data-theme="light"] .icon-sun { display: none; }
-[data-theme="light"] .icon-moon { display: block; }
+/* ===== Alternância de Tema (modo claro/escuro) ===== */
 
+/* Exibição condicional dos ícones */
+[data-theme="dark"] .icon-sun {
+  display: block;
+}
+[data-theme="dark"] .icon-moon {
+  display: none;
+}
+[data-theme="light"] .icon-sun {
+  display: none;
+}
+[data-theme="light"] .icon-moon {
+  display: block;
+}
 
+/* Botões de toggle (desktop e mobile) */
+#toggle__desktop,
+#toggle__mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #a6a9ae;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 
-/* Theme */
+/* Efeito de foco e hover */
+#toggle__desktop:hover,
+#toggle__mobile:hover {
+  background-color: #d1d5db;
+  transform: scale(1.1);
+}
+
+/* Ícones */
+.icon-sun,
+.icon-moon {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+/* Efeitos individuais no hover */
 .icon-sun:hover {
-  fill: #f59e0b;
+  fill: #fbbf24; /* amarelo vibrante */
+  transform: rotate(25deg) scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.7));
 }
 
 .icon-moon:hover {
-  fill: #6b7280;
+  fill: #94a3b8; /* cinza-azulado */
+  transform: rotate(-15deg) scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(148, 163, 184, 0.7));
 }
 
-
+/* Classe utilitária para ocultar */
 .hidden {
-  display: none;
+  display: none !important;
 }

@@ -2,26 +2,22 @@
   width: 130px;
 }
 
-/*  */
+
+
 /* Facebook */
 .link__primary .fa-facebook {
-  background-color: white;
-  font-size: 1.5rem;
-  color: #1877f2;
-  padding: 3px;
-  border-radius: var(--radius-full);
+  background-color: #1877f2;
+  color: #fff;
 }
 .link__primary .fa-facebook:hover {
   background-color: #145dbf;
-  color: var(--primary-color);
+  transform: scale(1.1) rotate(-5deg);
+  animation: pulseGlow 0.6s ease-in-out;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.5);
 }
 
 /* Instagram */
 .link__primary .fa-instagram {
-  color: white; /* ícone branco para destacar */
-  font-size: var(--font-size-xl);
-  padding: 3px;
-  border-radius: var(--radius-full);
   background: linear-gradient(
     45deg,
     #f09433 0%,
@@ -30,24 +26,142 @@
     #cc2366 75%,
     #bc1888 100%
   );
+  color: #fff;
 }
 .link__primary .fa-instagram:hover {
-  filter: brightness(1.1);
+  transform: scale(1.1) rotate(5deg);
+  filter: brightness(1.15);
+  animation: pulseGlow 0.6s ease-in-out;
+  box-shadow: 0 4px 12px rgba(204, 35, 102, 0.5);
 }
 
+/* Animação de brilho pulsante */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Redes sociais */
+.footer__social {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.footer__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  color: #ccc;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.footer__social a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.footer__copy {
+  margin-top: 25px;
+  font-size: 0.85rem;
+  color: #888;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base dos links principais */
+.menu__link,
 .link__primary {
-  font-size: var(--font-size-base);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
   color: var(--text);
-}
-.menu__link {
+  font-size: 1.2rem;
   font-weight: 500;
-  color: var(--text);
-  font-size: var(--font-size-xl);
+  padding: 6px 12px;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
 }
+
+/* Hover moderno */
 .menu__link:hover,
 .link__primary:hover {
   color: var(--primary);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* Efeito de sublinhado animado */
+.menu__link::after,
+.link__primary::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.menu__link:hover::after,
+.link__primary:hover::after {
+  width: 100%;
+}
+
+/* Ícones de redes sociais */
+.link__primary i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.link__primary i:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.1);
+}
+
+
+
+
+
 .nav__container {
   position: fixed;
   top: 0;
@@ -105,6 +219,23 @@
   justify-content: space-between;
   padding: var(--spacing-xl, var(--spacing-sm));
 }
+
+
+@media (max-width: 768px) {
+  .nav__links__desktop,
+  .nav__theme__desktop {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 430px) {
   .nav__mobile__toggle {
@@ -200,37 +331,3 @@ footer {
   font-size: 1.1rem;
 }
 
-/* Redes sociais */
-.footer__social {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-
-.footer__social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
-  color: #ccc;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.footer__social a:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.footer__copy {
-  margin-top: 25px;
-  font-size: 0.85rem;
-  color: #888;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1px;
-}
