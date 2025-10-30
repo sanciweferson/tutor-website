@@ -32,7 +32,33 @@
         <h1>Home páge</h1>
         <p>Bem-vindo à página inicial!</p>
       </section>
+      
     </main>
+
+    <button id="btnTop" title="Voltar ao topo">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+<!-- top -->
+
+<script>
+  const btnTop = document.getElementById("btnTop");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      btnTop.style.display = "block";
+    } else {
+      btnTop.style.display = "none";
+    }
+  };
+
+  btnTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
     <script src="js/layout/layout.js"></script>
     <script type="module">
       import { initMenu } from "./js/mobile/menuEvents.js"

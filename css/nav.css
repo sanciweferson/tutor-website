@@ -196,23 +196,34 @@
 .menu__toggle:hover {
   color: var(--primary);
 }
-
 #mobile__side {
-  display: none;
-  position: fixed;
+  position: fixed;             /* Fixa na tela — não depende do conteúdo */
   top: 0;
   left: 0;
-  width: 80%; /* ou 100% se quiser ocupar toda a tela */
-  height: 100vh;
-  border-right: 1px solid var(--bg-color);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 999; /* acima dos outros elementos */
+  width: 80%;
+  height: 100vh;               /* Ocupa a tela toda */
   background-color: var(--secondary);
+  overflow-y: auto;            /* Permite rolar o conteúdo */
+  scrollbar-width: none;       /* Esconde scrollbar no Firefox */
+  -ms-overflow-style: none;    /* Esconde scrollbar no Edge/IE */
+  z-index: 9999;               /* Fica por cima de tudo */
+  transform: translateX(-100%);/* Escondida por padrão */
+  transition: transform 0.3s ease-in-out;
 }
+
+/* Some a barra de rolagem no Chrome, Safari, etc */
+#mobile__side::-webkit-scrollbar {
+  display: none;
+}
+
+/* Quando a side-bar é aberta */
 #mobile__side.open {
   transform: translateX(0);
 }
+
+
+
+
 .nav__links__mobile {
   display: flex;
   align-items: self-start;
@@ -227,11 +238,6 @@
     display: none;
   }
 }
-
-
-
-
-
 
 
 
@@ -273,61 +279,6 @@
   }
 }
 
-footer {
-  position: fixed;
-  z-index: -0;
-  left: 0;
 
-  width: 100%;
-}
 
-footer {
-  
-  position: relative; /* antes estava fixed — isso travava o footer no topo ou sumia atrás do conteúdo */
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 10; /* z-index: -0 não existe, e negativo fazia o footer sumir atrás da página */
-}
-
-.footer {
-  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
-  color: #fff;
-  padding: 40px 20px 20px;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.footer__list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.footer__list li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #ccc;
-  font-size: 0.95rem;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.footer__list li a:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.footer__list i {
-  font-size: 1.1rem;
-}
 

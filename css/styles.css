@@ -3,6 +3,40 @@
 @import "nav.css";
 @import "main.css";
 @import "reset.css";
+@import "footer.css";
+
+#btnTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: #555; /* padrão claro */
+  color: white;
+  border: none;
+  outline: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+#btnTop:hover {
+  background-color: #333;
+  transform: translateY(-3px);
+}
+
+/* Estilo para o modo escuro */
+[data-theme="dark"] #btnTop {
+  background-color: #888;
+}
+
+[data-theme="dark"] #btnTop:hover {
+  background-color: #aaa;
+}
+
 
 .container {
   max-width: 1200px;
@@ -11,3 +45,11 @@
 
 
 
+body.menu-open::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 9998;
+}
