@@ -1,0 +1,13 @@
+@import "root.css";
+@import "theme.css";
+@import "nav.css";
+@import "main.css";
+@import "reset.css";
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+
+
