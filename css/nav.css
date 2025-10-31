@@ -1,173 +1,29 @@
-/* ==============================
-   🌐 LOGO
-============================== */
+/* ==========================
+   LOGO
+========================== */
 .nav__logo img {
   width: 130px;
 }
 
-/* ==============================
-   🌐 REDES SOCIAIS
-============================== */
-
-/* Facebook */
-.link__primary .fa-facebook {
-  background-color: #1877f2;
-  color: #fff;
-}
-.link__primary .fa-facebook:hover {
-  background-color: #145dbf;
-  transform: scale(1.1) rotate(-5deg);
-  animation: pulseGlow 0.6s ease-in-out;
-  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.5);
-}
-
-/* Instagram */
-.link__primary .fa-instagram {
-  background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  color: #fff;
-}
-.link__primary .fa-instagram:hover {
-  transform: scale(1.1) rotate(5deg);
-  filter: brightness(1.15);
-  animation: pulseGlow 0.6s ease-in-out;
-  box-shadow: 0 4px 12px rgba(204, 35, 102, 0.5);
-}
-
-/* Brilho pulsante */
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
-}
-
-/* Ícones de redes sociais */
-.link__primary i {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  font-size: 1.4rem;
-  border-radius: 50%;
-  transition: all 0.4s ease;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-.link__primary i:hover {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-  filter: brightness(1.1);
-}
-
-/* ==============================
-   🌐 LINKS PRINCIPAIS
-============================== */
-.menu__link,
-.link__primary {
-  display: inline-block;
-  color: var(--text-color, #222);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-/* Hover moderno */
-.menu__link:hover,
-.link__primary:hover {
-  color: var(--primary);
-  transform: translateY(-3px) scale(1.05);
-  text-shadow: 0 0 8px rgba(100, 100, 255, 0.4);
-}
-
-/* Sublinhado animado */
-.menu__link::after,
-.link__primary::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  transition: all 0.4s ease;
-  transform: translateX(-50%);
-  opacity: 0;
-}
-
-.menu__link:hover::after,
-.link__primary:hover::after {
-  width: 80%;
-  opacity: 1;
-}
-
-/* Links ao rolar */
-.nav__bar.scrolled .menu__link,
-.nav__bar.scrolled .link__primary {
-  color: #fff;
-  text-shadow: none;
-}
-
-.nav__bar.scrolled .menu__link:hover,
-.nav__bar.scrolled .link__primary:hover {
-  color: #aef;
-  text-shadow: 0 0 10px rgba(160, 240, 255, 0.6);
-}
-
-.nav__bar.scrolled .menu__link:hover::after,
-.nav__bar.scrolled .link__primary:hover::after {
-  background: linear-gradient(90deg, #9ef, #7af);
-}
-
-/* Dark mode links */
-[data-theme="dark"] .menu__link,
-[data-theme="dark"] .link__primary {
-  color: #ddd;
-}
-
-[data-theme="dark"] .menu__link:hover,
-[data-theme="dark"] .link__primary:hover {
-  color: #8ff;
-  text-shadow: 0 0 8px rgba(140, 255, 255, 0.6);
-}
-
-[data-theme="dark"] .menu__link::after,
-[data-theme="dark"] .link__primary::after {
-  background: linear-gradient(90deg, #5ef, #9ef);
-}
-
-/* ==============================
-   🌐 NAVBAR SURREAL
-============================== */
+/* ==========================
+   NAVBAR
+========================== */
 .nav__bar {
-  background: rgba(255, 255, 255, 0.85);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding: 1rem 1rem;
+  padding: 1rem;
   z-index: 9;
+  background-color: transparent;
   transition: all 0.5s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
 }
 
-/* Fundo surreal ao rolar */
+[data-theme="dark"] .nav__bar {
+  background-color: transparent;
+}
+
+/* Navbar scroll */
 .nav__bar.scrolled {
   background: linear-gradient(
     135deg,
@@ -178,10 +34,8 @@
   backdrop-filter: blur(16px) saturate(160%);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.5s ease;
 }
 
-/* Reflexo animado */
 .nav__bar.scrolled::before {
   content: "";
   position: absolute;
@@ -199,15 +53,10 @@
 }
 
 @keyframes shimmer {
-  0% {
-    left: -80%;
-  }
-  100% {
-    left: 120%;
-  }
+  0% { left: -80%; }
+  100% { left: 120%; }
 }
 
-/* Dark mode da navbar */
 [data-theme="dark"] .nav__bar {
   background: rgba(10, 10, 20, 0.8);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -231,9 +80,7 @@
   );
 }
 
-/* ==============================
-   🌐 ESTRUTURA E HERO
-============================== */
+/* Navbar containers */
 .nav__container {
   display: flex;
   justify-content: space-between;
@@ -246,13 +93,8 @@
   gap: var(--spacing-xl);
 }
 
-#toggle__desktop {
-  display: flex;
-}
-
-.nav__mobile__toggle {
-  display: none;
-}
+#toggle__desktop { display: flex; }
+.nav__mobile__toggle { display: none; }
 
 .menu__toggle {
   font-size: 2rem;
@@ -263,11 +105,11 @@
   padding: var(--spacing-sm);
 }
 
-.menu__toggle:hover {
-  color: var(--primary);
-}
+.menu__toggle:hover { color: var(--primary); }
 
-/* Sidebar mobile */
+/* ==========================
+   SIDEBAR MOBILE
+========================== */
 #mobile__side {
   position: fixed;
   top: 0;
@@ -282,14 +124,10 @@
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
 }
-#mobile__side::-webkit-scrollbar {
-  display: none;
-}
-#mobile__side.open {
-  transform: translateX(0);
-}
 
-/* Mobile links */
+#mobile__side::-webkit-scrollbar { display: none; }
+#mobile__side.open { transform: translateX(0); }
+
 .nav__links__mobile {
   display: flex;
   align-items: self-start;
@@ -297,19 +135,128 @@
   padding: var(--spacing-xl, var(--spacing-sm));
 }
 
-/* HERO */
-.hero {
-  margin-top: 5rem;
-  background: #000 url(../assets/images/header-background.jpg) center center/cover no-repeat;
-  padding: 8.5rem 2rem 8rem;
-  overflow-x: hidden;
-  color: rgb(80, 78, 78);
+/* ==========================
+   LINKS PRINCIPAIS
+========================== */
+.menu__link,
+.link__primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
   position: relative;
+  transition: all 0.3s ease;
 }
 
-[data-theme="dark"] .hero {
-  color: white;
+/* Hover & Glow & Sublinhado */
+.menu__link:hover,
+.link__primary:hover {
+  color: var(--primary);
+  transform: translateY(-3px) scale(1.05);
+  text-shadow: 0 0 8px rgba(100, 100, 255, 0.4);
 }
+
+.menu__link::after,
+.link__primary::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.menu__link:hover::after,
+.link__primary:hover::after { width: 60%; opacity: 1; }
+
+/* Navbar com scroll hover */
+.nav__bar.scrolled .menu__link,
+.nav__bar.scrolled .link__primary {
+  color: #fff;
+  text-shadow: none;
+}
+
+.nav__bar.scrolled .menu__link:hover,
+.nav__bar.scrolled .link__primary:hover { color: #aef; text-shadow: 0 0 10px rgba(160, 240, 255, 0.6); }
+
+.nav__bar.scrolled .menu__link:hover::after,
+.nav__bar.scrolled .link__primary:hover::after {
+  background: linear-gradient(90deg, #9ef, #7af);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .menu__link,
+[data-theme="dark"] .link__primary { color: #ddd; }
+
+[data-theme="dark"] .menu__link:hover,
+[data-theme="dark"] .link__primary:hover {
+  color: #8ff;
+  text-shadow: 0 0 8px rgba(140, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .menu__link::after,
+[data-theme="dark"] .link__primary::after {
+  background: linear-gradient(90deg, #5ef, #9ef);
+}
+
+/* ==========================
+   ÍCONES DAS REDES SOCIAIS
+========================== */
+.link__primary i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 1.4rem;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.link__primary i:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  filter: brightness(1.1);
+}
+
+/* Redes */
+.link__primary .fa-facebook {
+  background-color: #1877f2; color: #fff;
+}
+.link__primary .fa-facebook:hover {
+  background-color: #145dbf;
+  transform: scale(1.1) rotate(-5deg);
+  animation: pulseGlow 0.6s ease-in-out;
+  box-shadow: 0 4px 12px rgba(24,119,242,0.5);
+}
+
+.link__primary .fa-instagram {
+  background: linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  color: #fff;
+}
+.link__primary .fa-instagram:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: brightness(1.15);
+  animation: pulseGlow 0.6s ease-in-out;
+  box-shadow: 0 4px 12px rgba(204,35,102,0.5);
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+[data-theme="dark"] .hero { color: white; }
 
 .hero .hero-flex {
   display: flex;
@@ -320,6 +267,7 @@
 }
 
 .hero h1 {
+  color: rgb(96, 90, 90);
   font-size: 3.5rem;
   line-height: 1.2;
   font-weight: 700;
@@ -327,46 +275,51 @@
 }
 
 .hero p {
+  color: rgb(219, 215, 215);
   font-size: 1.2rem;
   margin-bottom: 2rem;
   line-height: 1.8;
   font-weight: 400;
 }
 
-.hero img {
-  width: 100%;
+.hero img { width: 100%; }
+
+/* ==========================
+   ANIMAÇÕES
+========================== */
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 0 rgba(255,255,255,0.3); }
+  50% { box-shadow: 0 0 12px rgba(255,255,255,0.6); }
 }
 
-/* ==============================
-   🌐 RESPONSIVIDADE
-============================== */
+/* ==========================
+   MEDIA QUERIES
+========================== */
 @media (max-width: 768px) {
   .nav__links__desktop,
-  .nav__theme__desktop {
-    display: none;
+  .nav__theme__desktop { display: none; }
+
+  .hero {
+    margin-top: 6rem;
+    padding: 4rem 1rem 2rem;
   }
+  .hero .hero-flex { flex-direction: column; }
+  .hero h1 { text-align: center; font-size: 2.5rem; }
+  .hero p { font-size: 1.2rem; text-align: center; }
+
+  .btn { width: 100%; text-align: center; margin: 1rem 0; }
+  .hero img { margin: -5rem 0 0 0; }
 }
 
 @media (max-width: 430px) {
-  .nav__mobile__toggle {
-    display: block;
-  }
+  .nav__mobile__toggle { display: block; }
   .nav__links__desktop,
-  .nav__theme__desktop {
-    display: none;
-  }
-  #mobile__side {
-    display: block;
-  }
-  .nav__list {
-    flex-direction: column;
-    gap: var(--spacing-lg);
-  }
+  .nav__theme__desktop { display: none; }
+
+  #mobile__side { display: block; }
+  .nav__list { flex-direction: column; gap: var(--spacing-lg); }
   .menu__link,
-  .link__primary {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: var(--font-size-lg);
-  }
+  .link__primary { display: flex; align-items: center; gap: 0.75rem; font-size: var(--font-size-lg); }
+  .menu__link span,
+  .link__primary span { display: inline-block; width: 100px; }
 }
