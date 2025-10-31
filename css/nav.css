@@ -257,7 +257,14 @@
    HERO SECTION
 ========================== */
 [data-theme="dark"] .hero { color: white; }
-
+.hero {
+  margin-top: 5rem;
+  background: #000 url(../assets/images/header-background.jpg) center center/cover no-repeat;
+  padding: 8.5rem 2rem 8rem;
+  overflow-x: hidden;
+  color: rgb(80, 78, 78);
+  position: relative;
+}
 .hero .hero-flex {
   display: flex;
   justify-content: space-between;
