@@ -1,101 +1,96 @@
+/* ==========================
+   LOGO
+========================== */
 .nav__logo img {
   width: 130px;
 }
 
-
-
-/* Facebook */
-.link__primary .fa-facebook {
-  background-color: #1877f2;
-  color: #fff;
-}
-.link__primary .fa-facebook:hover {
-  background-color: #145dbf;
-  transform: scale(1.1) rotate(-5deg);
-  animation: pulseGlow 0.6s ease-in-out;
-  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.5);
-}
-
-/* Instagram */
-.link__primary .fa-instagram {
-  background: linear-gradient(
-    45deg,
-    #f09433 0%,
-    #e6683c 25%,
-    #dc2743 50%,
-    #cc2366 75%,
-    #bc1888 100%
-  );
-  color: #fff;
-}
-.link__primary .fa-instagram:hover {
-  transform: scale(1.1) rotate(5deg);
-  filter: brightness(1.15);
-  animation: pulseGlow 0.6s ease-in-out;
-  box-shadow: 0 4px 12px rgba(204, 35, 102, 0.5);
+/* ==========================
+   NAVBAR
+========================== */
+.nav__bar {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1rem;
+  z-index: 9;
 }
 
-/* Animação de brilho pulsante */
-@keyframes pulseGlow {
-  0% {
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
-  }
+[data-theme="dark"] .nav__bar {
+  background-color: transparent;
 }
 
-/* Redes sociais */
-.footer__social {
-  margin-top: 25px;
+.nav__container {
   display: flex;
-  justify-content: center;
-  gap: 18px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer__social a {
+.nav__list {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 50%;
-  color: #ccc;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
+  gap: var(--spacing-xl);
 }
 
-.footer__social a:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  transform: translateY(-2px);
+#toggle__desktop {
+  display: flex;
 }
 
-.footer__copy {
-  margin-top: 25px;
-  font-size: 0.85rem;
-  color: #888;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1px;
+.nav__mobile__toggle {
+  display: none;
 }
 
+.menu__toggle {
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  color: var(--text);
+  padding: var(--spacing-sm);
+}
 
+.menu__toggle:hover {
+  color: var(--primary);
+}
 
+/* ==========================
+   SIDEBAR MOBILE
+========================== */
+#mobile__side {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100vh;
+  background-color: var(--secondary);
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
 
+#mobile__side::-webkit-scrollbar {
+  display: none;
+}
 
+#mobile__side.open {
+  transform: translateX(0);
+}
 
+.nav__links__mobile {
+  display: flex;
+  align-items: self-start;
+  justify-content: space-between;
+  padding: var(--spacing-xl, var(--spacing-sm));
+}
 
-
-
-
-
-
-
-/* Base dos links principais */
+/* ==========================
+   LINKS PRINCIPAIS
+========================== */
 .menu__link,
 .link__primary {
   display: inline-flex;
@@ -112,33 +107,83 @@
 }
 
 /* Hover moderno */
+.menu__link,
+.link__primary {
+  display: inline-block;
+  color: var(--text-color, #222);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover com glow */
 .menu__link:hover,
 .link__primary:hover {
   color: var(--primary);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 0 8px rgba(100, 100, 255, 0.4);
 }
 
-/* Efeito de sublinhado animado */
+/* Sublinhado animado */
 .menu__link::after,
 .link__primary::after {
   content: "";
   position: absolute;
-  width: 0%;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
   height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--primary);
-  transition: width 0.3s ease;
-  border-radius: 2px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+  opacity: 0;
 }
 
 .menu__link:hover::after,
 .link__primary:hover::after {
-  width: 100%;
+  width: 60%;
+  opacity: 1;
 }
 
-/* Ícones de redes sociais */
+/* Navbar com scroll */
+.nav__bar.scrolled .menu__link,
+.nav__bar.scrolled .link__primary {
+  color: #fff;
+  text-shadow: none;
+}
+
+.nav__bar.scrolled .menu__link:hover,
+.nav__bar.scrolled .link__primary:hover {
+  color: #aef;
+  text-shadow: 0 0 10px rgba(160, 240, 255, 0.6);
+}
+
+.nav__bar.scrolled .menu__link:hover::after,
+.nav__bar.scrolled .link__primary:hover::after {
+  background: linear-gradient(90deg, #9ef, #7af);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .menu__link,
+[data-theme="dark"] .link__primary {
+  color: #ddd;
+}
+
+[data-theme="dark"] .menu__link:hover,
+[data-theme="dark"] .link__primary:hover {
+  color: #8ff;
+  text-shadow: 0 0 8px rgba(140, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .menu__link::after,
+[data-theme="dark"] .link__primary::after {
+  background: linear-gradient(90deg, #5ef, #9ef);
+}
+
+/* ==========================
+   ÍCONES DAS REDES SOCIAIS
+========================== */
 .link__primary i {
   display: inline-flex;
   align-items: center;
@@ -158,80 +203,99 @@
   filter: brightness(1.1);
 }
 
+/* Facebook */
+.link__primary .fa-facebook {
+  background-color: #1877f2;
+  color: #fff;
+}
 
+.link__primary .fa-facebook:hover {
+  background-color: #145dbf;
+  transform: scale(1.1) rotate(-5deg);
+  animation: pulseGlow 0.6s ease-in-out;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.5);
+}
 
+/* Instagram */
+.link__primary .fa-instagram {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  color: #fff;
+}
 
+.link__primary .fa-instagram:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: brightness(1.15);
+  animation: pulseGlow 0.6s ease-in-out;
+  box-shadow: 0 4px 12px rgba(204, 35, 102, 0.5);
+}
 
-.nav__container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem 1rem;
+/* ==========================
+   HERO SECTION
+========================== */
+.hero {
+  margin-top: 5rem;
+  background: #000 url(../assets/images/header-background.jpg) center center/cover no-repeat;
+  padding: 8.5rem 2rem 8rem;
+  overflow-x: hidden;
+  color: rgb(80, 78, 78);
+  position: relative;
+}
+
+[data-theme="dark"] .hero {
+  color: white;
+}
+
+.hero .hero-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.nav__list {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xl);
+  gap: 6rem;
+  padding-bottom: 8rem;
 }
 
-#toggle__desktop {
-  display: flex;
-}
-.nav__mobile__toggle {
-  display: none;
-}
-.menu__toggle {
-  font-size: 2rem;
-  cursor: pointer;
-  user-select: none;
-  background: none;
-  color: var(--text);
-  padding: var(--spacing-sm);
+.hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-.menu__toggle:hover {
-  color: var(--primary);
-}
-#mobile__side {
-  position: fixed;             /* Fixa na tela — não depende do conteúdo */
-  top: 0;
-  left: 0;
-  width: 80%;
-  height: 100vh;               /* Ocupa a tela toda */
-  background-color: var(--secondary);
-  overflow-y: auto;            /* Permite rolar o conteúdo */
-  scrollbar-width: none;       /* Esconde scrollbar no Firefox */
-  -ms-overflow-style: none;    /* Esconde scrollbar no Edge/IE */
-  z-index: 9999;               /* Fica por cima de tudo */
-  transform: translateX(-100%);/* Escondida por padrão */
-  transition: transform 0.3s ease-in-out;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  font-weight: 400;
 }
 
-/* Some a barra de rolagem no Chrome, Safari, etc */
-#mobile__side::-webkit-scrollbar {
-  display: none;
+.hero img {
+  width: 100%;
 }
 
-/* Quando a side-bar é aberta */
-#mobile__side.open {
-  transform: translateX(0);
+/* ==========================
+   ANIMAÇÕES
+========================== */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.3);
+  }
 }
 
-
-
-
-.nav__links__mobile {
-  display: flex;
-  align-items: self-start;
-  justify-content: space-between;
-  padding: var(--spacing-xl, var(--spacing-sm));
-}
-
-
+/* ==========================
+   MEDIA QUERIES
+========================== */
 @media (max-width: 768px) {
   .nav__links__desktop,
   .nav__theme__desktop {
@@ -239,26 +303,26 @@
   }
 }
 
-
-
-
-
 @media (max-width: 430px) {
   .nav__mobile__toggle {
     display: block;
   }
+
   .nav__links__desktop,
   .nav__theme__desktop {
     display: none;
   }
+
   #mobile__side {
     display: block;
   }
+
   .nav__list {
     display: flex;
     gap: var(--spacing-lg);
     flex-direction: column;
   }
+
   .menu__link {
     display: flex;
     align-items: center;
@@ -272,13 +336,10 @@
     gap: 0.75rem;
     font-size: var(--font-size-lg);
   }
+
   .menu__link span,
   .link__primary span {
     display: inline-block;
-    width: 100px; /* ajuste conforme necessário */
+    width: 100px;
   }
 }
-
-
-
-

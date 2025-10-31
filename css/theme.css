@@ -48,13 +48,13 @@
 .icon-sun:hover {
   fill: #fbbf24; /* amarelo vibrante */
   transform: rotate(25deg) scale(1.1);
-  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.7));
+  /* filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.7)); */
 }
 
 .icon-moon:hover {
   fill: #94a3b8; /* cinza-azulado */
   transform: rotate(-15deg) scale(1.1);
-  filter: drop-shadow(0 0 6px rgba(148, 163, 184, 0.7));
+  /* filter: drop-shadow(0 0 6px rgba(148, 163, 184, 0.7)); */
 }
 
 /* Classe utilitária para ocultar */

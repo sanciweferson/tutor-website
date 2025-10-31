@@ -37,6 +37,47 @@
   background-color: #aaa;
 }
 
+.btn {
+  display: inline-block;
+  padding: 1.2rem 2.4rem;
+  border: 2px solid var(--secondary);
+  border-radius: 999px; /* deixa mais arredondado e elegante */
+  background: var(--primary);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* estado quando o mouse passa por cima */
+.btn:hover {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* clique */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+[data-theme="dark"] .btn {
+  background: var(--secondary);
+  color: var(--text-light);
+  border-color: var(--primary);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .btn:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.15);
+}
 
 .container {
   max-width: 1200px;

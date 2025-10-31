@@ -5,6 +5,14 @@ main {
   
 }
 
+/* Esconde visualmente a scrollbar, mas permite rolar */
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
 
 
 
