@@ -27,19 +27,21 @@ footer {
 
 .footer__list {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0px;
   align-items: center;
+  justify-self: center;
   margin: 0;
   padding: 0;
 }
 
 .footer__list li a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  
+  
   color: #ccc;
   font-size: 0.95rem;
   text-decoration: none;
@@ -90,9 +92,34 @@ footer {
 }
 
 .footer__copy {
-  margin-top: 25px;
+  margin-top: 2rem;
   font-size: 0.85rem;
   color: #888;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1px;
+  padding-top: 5px;
 }
+
+  .menu__link__footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: var(--font-size-lg);
+  }
+
+  
+
+  @media (max-width:600px){
+    .footer__list {
+  list-style: none;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 0px;
+  align-items: center;
+  justify-self: center;
+  margin: 0;
+  padding: 0;
+}
+  }

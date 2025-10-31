@@ -66,6 +66,35 @@
         <h1>Home páge</h1>
         <p>Bem-vindo à página inicial!</p>
       </section>
+
+      <section class="contact section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Formulário de Contato</h2>
+      <div class="heading-border"></div>
+    </div>
+
+    <section class="contact">
+  <form id="contactForm" class="contact-form">
+    <h2>Formulário de Contato</h2>
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required />
+
+    <label for="assunto">Assunto</label>
+    <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required />
+
+    <label for="mensagem">Mensagem</label>
+    <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..." required></textarea>
+
+    <button type="submit" id="submitBtn" class="btn">Enviar Mensagem</button>
+  </form>
+</section>
+
+
     </main>
 
     <button id="btnTop" title="Voltar ao topo">
@@ -128,5 +157,26 @@
       })
     </script>
     <script src="js/scroll/script.js"></script>
+
+
+    <!-- form -->
+
+    <script>
+      const form = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
+
+form.querySelectorAll('input, textarea').forEach(field => {
+  field.addEventListener('input', () => {
+    // verifica se algum campo tem valor
+    const filled = Array.from(form.querySelectorAll('input, textarea')).some(f => f.value.trim() !== '');
+    if(filled){
+      submitBtn.classList.add('visible');
+    } else {
+      submitBtn.classList.remove('visible');
+    }
+  });
+});
+
+    </script>
   </body>
 </html>

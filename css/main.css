@@ -22,3 +22,110 @@ body::-webkit-scrollbar {
     padding: 0rem 1rem
   }
 }
+
+
+
+/* Contato ocupa toda a tela */
+.contact {
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 20px; /* evita que encoste nas bordas */
+}
+
+/* Formulário centralizado, grande e moderno */
+.contact-form {
+  width: 100%;
+  max-width: 80%;  /* bem largo */
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  margin-bottom: 5rem;
+}
+
+.contact-form h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+
+/* Campos enormes */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  font-size: 1.3rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.contact-form textarea {
+  min-height: 200px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #1877f2;
+  box-shadow: 0 0 10px rgba(24, 119, 242, 0.3);
+  outline: none;
+}
+
+/* Botão inicialmente invisível */
+.contact-form .btn {
+  width: 100%;
+  padding: 18px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #1877f2, #145dbf);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.4s ease;
+}
+
+.contact-form .btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-form .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(20, 93, 191, 0.4);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .contact{
+    width: 100%;
+    padding: 0px;
+  }
+  .contact-form {
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .contact-form h2 {
+    font-size: 2rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  .contact-form .btn {
+    font-size: 1.2rem;
+    padding: 5px 0;
+  }
+  
+.contact-form textarea {
+  min-height: 100px;
+}
+}
